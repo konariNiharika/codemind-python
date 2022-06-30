@@ -1,15 +1,16 @@
-n=int(input())
+def prime(n):
+    if n==1:
+        return 0
+    for i in range(2,int(n**0.5)+1):
+        if n%i==0:
+            return 0
+    return 1
+x=int(input())
 c=0
-for i in range(1,n+1):
-    for j in range(2,n+1):
-        for k in range(2,n+1):
-            if(i%j!=0 and i%k!=0):
-                if(j*k==n):
-                    p=j;
-                    q=k;
-                    c+=1
-                    break;
-if(c!=0):
-    print(q,p)
-else:
-    print("-1")
+for i in range(1,x):
+    if x%i==0:
+        if prime(i):
+            print(i,end=' ')
+            c+=1
+if c==0:
+    print('-1')
